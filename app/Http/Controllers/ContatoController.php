@@ -8,6 +8,8 @@ class ContatoController extends Controller
 {
     public function contato (){
         $contato = 'Contato';
+
+        var_dump($_GET);
        return view('site.contato', ['contato'=> $contato]);
     }
 }
