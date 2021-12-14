@@ -16,7 +16,7 @@ class ContatoController extends Controller
         echo '<br>';
         echo $request->input('email');
     */
-
+    /*
     $contato = new SiteContato();
     $contato->nome = $request->input('nome');
     $contato->telefone = $request->input('telefone');
@@ -25,7 +25,13 @@ class ContatoController extends Controller
     $contato->mensagem = $request->input('mensagem');
 
     $contato->save();
-    
+    */
+
+    $contato = new SiteContato();
+    $contato->fill($request->all());
+    $contato->save();
+
+    //print_r($contato->getAttributes());
        return view('site.contato', ['contato'=> 'contato']);
     }
 }
