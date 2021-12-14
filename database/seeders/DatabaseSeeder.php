@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Fornecedor;
+use App\Models\SiteContato;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,5 +17,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call(FornecedorSeeder::class); //runar a classe seeder
+        $this->call(SiteContatoSeeder::class); //runar a classe seeder
     }
 }
