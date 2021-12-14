@@ -28,8 +28,8 @@ class ContatoController extends Controller
     */
 
     $contato = new SiteContato();
-    $contato->fill($request->all());
-    $contato->save();
+    $contato->create($request->all());
+    //$contato->save();
 
     //print_r($contato->getAttributes());
        return view('site.contato', ['contato'=> 'contato']);
