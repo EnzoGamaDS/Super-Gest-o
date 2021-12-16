@@ -27,3 +27,9 @@
     <br>
     <button type="submit" class="{{$classe}}">ENVIAR</button>
 </form>
+
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        {{$error}} <br>
+    @endforeach
+@endif
