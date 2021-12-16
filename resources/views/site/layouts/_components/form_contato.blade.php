@@ -32,7 +32,7 @@
         @if (old('mensagem') != '')
             {{old('mensagem')}}
             @else
-                 Preencha aqui a sua mensagem
+Preencha aqui a sua mensagem
             @endif
     </textarea>
     <br>
