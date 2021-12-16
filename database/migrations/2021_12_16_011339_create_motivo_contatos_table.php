@@ -19,10 +19,6 @@ class CreateMotivoContatosTable extends Migration
             $table->string('motivo_contato', 20);
             $table->timestamps();
         });
-
-        MotivoContato::create(['Dúvida']);
-        MotivoContato::create(['Elogio']);
-        MotivoContato::create(['Reclamação']);
     }
 
     /**
