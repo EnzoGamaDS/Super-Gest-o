@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MotivoContato;
+use App\Models\SiteContato;
+
 class ContatoController extends Controller
 {
     public function contato (Request $request){
@@ -16,17 +18,14 @@ class ContatoController extends Controller
 
         //realizar a validação dos dados recebidos no request
         $request->validate([
-            
-            'nome' => 'required|min:3|max:40', // nomes com no minimo 3 caracteres e no maximo 40
+            'nome' => 'required|min:3|max:40|unique:site_contatos', // nomes com no minimo 3 caracteres e no maximo 40
             'telefone' => 'required',
             'email' => 'email',
-            'motivo_contato' => 'required',
+            'motivo_contatos_id' => 'required',
             'mensagem' => 'required'
-
-
         ]);
 
-        //SiteContato::create($request->all());
-
+        SiteContato::create($request->all());
+        return redirect()->route('site.index'); 
     }
 }
