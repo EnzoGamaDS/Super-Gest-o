@@ -4,6 +4,7 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,8 @@ Route::get('/contato',[ContatoController::class, 'contato'])->name('site.contato
 
 Route::get('/contato',[ContatoController::class, 'salvar'])->name('site.contato')->middleware('log.acesso');
 
-Route::get('login/', function () {return 'login';})->name('site.login');
+Route::get('/login', [LoginController::class, 'index'])->name('site.login');
+Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login');
 
 Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function (){
 Route::get('clientes/', function () {return 'clientes';})->name('app.clientes');
