@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
+use App\Models\LogAcesso;
 
 class logAcessoMiddleware
 {
@@ -18,6 +19,10 @@ class logAcessoMiddleware
     public function handle(Request $request, Closure $next)
     {
        // return $next($request);
+
+       $ip = $request->server->get('REMOTE_ADDR');
+       $rota = $request->getRequestUri();
+       LogAcesso::create(['log'=>"IP : $ip rota "]);
 
        return Response('chegamos no middleware e finalizamos aqui msm');
     }
