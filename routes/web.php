@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PrincipalController::class, 'principal'])->name('site.index');
+Route::get('/', [PrincipalController::class, 'principal'])->name('site.index')->middleware('log.acesso');
 Route::get('/sobre-nos',[SobreNosController::class, 'sobreNos'])->name('site.sobrenos');
 Route::get('/contato',[ContatoController::class, 'contato'])->name('site.contato');
 
-Route::get('/contato',[ContatoController::class, 'salvar'])->name('site.contato');
+Route::get('/contato',[ContatoController::class, 'salvar'])->name('site.contato')->middleware('log.acesso');
 
 Route::get('login/', function () {return 'login';})->name('site.login');
 
