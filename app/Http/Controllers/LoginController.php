@@ -8,8 +8,10 @@ use App\Models\User;
 class LoginController extends Controller
 {
     //
-    public function index(){
-        return view('site.login', ['titulo' => 'login']);
+    public function index(Request $request){
+        $erro = $request->get('erro');
+
+        return view('site.login', ['titulo' => 'login','erro'=> $erro]);
     }
     public function autenticar(Request $request){
 
@@ -42,7 +44,7 @@ class LoginController extends Controller
            echo '<br> usuario existe';
         }
         else{
-            echo 'usuario nao existe';
+            return redirect()->route('site.login', ['erro'=> 1]);
         }
     }
 }
